@@ -17,10 +17,10 @@ class TrainConfig:
     window_length: int = 768
     n_mel_channels: int = 80
 
-    raw_data_path: Path = "/app/data/ssw_esd"
-    val_ids_path: Path = "/app/data/val_ids.txt"
-    test_ids_path: Path = "/app/data/test_ids.txt"
-    preprocessed_data_path: Path = Path("/app/data/preprocessed")
+    raw_data_path: Path = "/content/emospeech/data/ssw_esd"
+    val_ids_path: Path = "/content/emospeech/data/val_ids.txt"
+    test_ids_path: Path = "/content/emospeech/data/test_ids.txt"
+    preprocessed_data_path: Path = Path("/content/emospeech/data/preprocessed")
 
     egemap_feature_names: Tuple[str] = ("F0semitoneFrom27.5Hz_sma3nz_percentile50.0",
                                         "F0semitoneFrom27.5Hz_sma3nz_percentile80.0",
@@ -31,7 +31,7 @@ class TrainConfig:
                                         "equivalentSoundLevel_dBp")
 
     # Vocoder
-    vocoder_checkpoint_path: str = "/app/data/g_01800000"
+    vocoder_checkpoint_path: str = "/content/emospeech/data/g_01800000"
     istft_resblock_kernel_sizes: Tuple[int] = (3, 7, 11)
     istft_upsample_rates: Tuple[int] = (6, 8)
     istft_upsample_initial_channel: int = 512
@@ -43,7 +43,7 @@ class TrainConfig:
     # Transformer Encoder
     padding_index: int = 0
     max_seq_len: int = 2000
-    phones_mapping_path: Path = Path("/app/data/preprocessed/phones.json")
+    phones_mapping_path: Path = Path("/content/emospeech/data/preprocessed/phones.json")
     transformer_encoder_hidden: int = 512
     transformer_encoder_layer: int = 9
     transformer_encoder_head: int = 2
@@ -92,22 +92,22 @@ class TrainConfig:
     seed: int = 55
     precision: str = 32
     matmul_precision: str = "high"
-    lightning_checkpoint_path: str = "/app/data/checkpoint" # directory to save checkpoints
+    lightning_checkpoint_path: str = "/content/emospeech/data/checkpoint" # directory to save checkpoints
     train_from_checkpoint: Optional[str] = None # filename in <lightning_checkpoint_path> directory
     num_workers: int = 1
-    test_wav_files_directory: str = "/app/data/wav"
-    test_mos_files_directory: str = "/app/data/mos"
+    test_wav_files_directory: str = "/content/emospeech/data/wav"
+    test_mos_files_directory: str = "/content/emospeech/data/mos"
     total_training_steps: int = 50000
     val_each_epoch: int = 20
     val_audio_log_each_step: int = 1 # if greater than one will log audio each <n> step, set to save storage
 
     # Test / Inference
-    testing_checkpoint: str = "/app/data/emospeech.ckpt" #"data/deepvk_large_checkpoint/epoch=1079-step=127440.ckpt"
-    audio_save_path: str = "/app/data/deepvk_test" # directory where synthesised wav files will be saved
-    nisqa_save_path: str = "/app/data/deepvk_test" # directory where nisqa output files will be saved
+    testing_checkpoint: str = "/content/emospeech/data/emospeech.ckpt" #"data/deepvk_large_checkpoint/epoch=1079-step=127440.ckpt"
+    audio_save_path: str = "/content/emospeech/data/deepvk_test" # directory where synthesised wav files will be saved
+    nisqa_save_path: str = "/content/emospeech/data/deepvk_test" # directory where nisqa output files will be saved
     limit_generation: int = None # if specified, will stop and do not iterate through all samples in testing loader
     compute_nisqa_on_test: bool = True # is True will write NISQA scores and stds to test.log file
-    phones_path: str = "/app/data/phones.json" # path to phones dictionary
+    phones_path: str = "/content/emospeech/data/phones.json" # path to phones dictionary
 
     # Optimizer
     optimizer_grad_clip_val: float = 1.
