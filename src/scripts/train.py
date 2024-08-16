@@ -54,7 +54,7 @@ def train(config: TrainConfig) -> None:
         check_val_every_n_epoch=config.val_each_epoch,
         log_every_n_steps=config.wandb_log_every_n_steps,
         logger=wandb_logger,
-        accelerator="gpu" if config.device == "cuda" else "cpu",
+        accelerator="cuda",
         devices=list(config.devices) if config.devices else "auto",
         callbacks=[callbacks, progress_bar],
         limit_val_batches=config.limit_val_batches,

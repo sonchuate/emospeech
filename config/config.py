@@ -127,7 +127,7 @@ class TrainConfig:
     wandb_offline: bool = False
     wandb_progress_bar_refresh_rate: int = 1
     wandb_log_every_n_steps: int = 1
-    devices: Union[tuple, int] = (0, 1, 2, 3)
+    devices: Union[tuple, int] = (0)
     limit_val_batches: Optional[int] = 4 # val_batch_size * limit_val_batches samples will be logged to wandb and saved locally each val step
     limit_test_batches: Optional[int] = 4 # test_batch_size * limit_test_batches samples will be logged to wandb and saved locally during test
     num_sanity_val_steps: int = 4
