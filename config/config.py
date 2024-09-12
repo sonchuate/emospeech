@@ -17,7 +17,7 @@ class TrainConfig:
     window_length: int = 768
     n_mel_channels: int = 80
 
-    raw_data_path: Path = "/kaggle/working/emospeech/data/ssw_esd"
+    raw_data_path: Path = "/kaggle/working/emospeech/data/data/ssw_esd"
     val_ids_path: Path = "/kaggle/working/emospeech/data/val_ids.txt"
     test_ids_path: Path = "/kaggle/working/emospeech/data/test_ids.txt"
     preprocessed_data_path: Path = Path("/kaggle/working/emospeech/data/preprocessed")
